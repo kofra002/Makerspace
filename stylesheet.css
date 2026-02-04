@@ -94,7 +94,7 @@ body {
 .knapp1 {
     width: 275px;
     height: 75px;
-    border-left: solid;
+    border-right: solid;
     border-color: #1E1E78;
     display: flex;
     justify-content: center;
