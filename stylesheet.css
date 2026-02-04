@@ -1,126 +1,71 @@
-/* Generelt */
-body {
-    background-color: #FFFEEF;
-    display: flex;
-    flex-direction: column;
-    margin: 0;
+/* Fonts */
+@font-face {
+    font-family: Roboto;
+    src: url(assets/fonts/Roboto-VariableFont_wdth\,wght.ttf);
 }
-
-/* Font */
-.inter {
-  font-family: "Inter", sans-serif;
+@font-face {
+    font-family: RobotoItalic;
+    src: url(assets/fonts/Roboto-Italic-VariableFont_wdth\,wght.ttf);
+}
+/* General */
+* {
+  font-family: "Roboto", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 300;
+  font-weight: 350;
   font-style: normal;
 }
-
-.flex {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    background-color: blue;
-    width: 1470px;
-    height: 120px;
+body {
+    background-color: #FFFEEE;
 }
-
-.bemanningBoks {
+.singleFlexItem {
+    flex: 1;
+}
+.doubleFlexItem {
+    flex: 2;
+}
+.flexAlign {
     display: flex;
-    justify-content: center;
     align-items: center;
-    background-color: blueviolet;
-    width: 652px;
-    height: 120px;
+}
+.justifyCenter {
+    justify-content: center;
+}
+h1 {
+    color: #3A47FF;
+    font-size: 170px;
+    margin: 20px;
+}
+h4 {
     font-size: 26px;
 }
-
-.varslingBoks {
-    background-color: palevioletred;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 818px;
-    height: 120px;
-}
-
+/* Warning */
 .oransjeBoks {
     background-color: #F87837;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     border-radius: 10px;
-    width: 725px;
-    height: 85px;
     font-size: 24px;
+    padding: 5px;
 }
-
 .varslingBilde {
     width: 65px;
     height: 65px;
     margin-right: 30px;
 }
 
-.makerspaceTittel {
-    width: 1470px;
-    height: 185px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: aqua;
-    color: #3A47FF;
-    font-size: 170px;
-}
-
-.navBarBoks {
-    width: 1470px;
-    height: 110px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: hotpink;
-}
-
+/* Header */
 .navBar {
-    background-color: sienna;
-    width: 1375px;
-    height: 75px;
     border-radius: 10px;
     border-style: solid;
     border-width: 2px;
-    border-color: #1E1E78;
-    display: flex;
-    flex-direction: row;
 }
-
-.knapp1 {
+.navBar div {
+    display: flex;
     width: 275px;
     height: 75px;
-    border-right: solid;
-    border-color: #1E1E78;
-    display: flex;
     justify-content: center;
     align-items: center;
     font-size: 32px;
     color: #1E1E78;
 }
-
-.knapp2 {
-    width: 275px;
-    height: 75px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 32px;
-    color: #1E1E78;
-}
-
-/* Header */
-#warning {
-    border: solid;
-}
-#navigationBar {
-    border: solid;
-}
-#navigationBar div {
-    text-align: center;
-    flex: 1;
+.tempHeight {
+    height: 100px;
 }
