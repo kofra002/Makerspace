@@ -1,0 +1,22 @@
+/* Generelt */
+.flex {
+    display: flex;
+}
+.singleFlexItem {
+    flex: 1;
+}
+.doubleFlexItem {
+    flex: 2;
+}
+
+/* Header */
+#warning {
+    border: solid;
+}
+#navigationBar {
+    border: solid;
+}
+#navigationBar div {
+    text-align: center;
+    flex: 1;
+}
