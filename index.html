@@ -5,18 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="stylesheet.css">
     <title>Makerspace</title>
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <div class="flex">
-            <div class="singleFlexItem">
-                <h4>Nåværende bemanning: 08:15 -> 10:00</h4>
+            <div class="bemanningBoks">
+                <p class="inter">Nåværende bemanning: 08:15 -> 10:00</p>
             </div>
-            <div id="warning" class="singleFlexItem">
-                <h3>Varsling!</h3>
+
+            <div class="varslingBoks">
+                <div class="oransjeBoks">
+                    <img class="varslingBilde" src="bilder/varslingBilde.png">
+                    <p class="inter">Denne uken er forbeholdt til eksamen! 3D-printere <br> prioriteres</p>
+                </div>
             </div>
         </div>
-        <h1>MAKERSPACE</h1>
+
+        <div class="makerspaceTittel">
+            <p class="inter"><b>MAKERSPACE</b></p>
+        </div>
+
+        <div class="navBarBoks">
+            <div class="navBar">
+                <div class="knapp1"><p class="inter">Åpningstider</p></div>
+                <div class="knapp1"><p class="inter">Utstyr</p></div>
+                <div class="knapp1"><p class="inter">Booking</p></div>
+                <div class="knapp1"><p class="inter">Elevarbeid</p></div>
+                <div class="knapp2"><p class="inter">Ansatte</p></div>
+            </div>
+        </div>
+
         <div id="navigationBar" class="flex">
             <div>Åpningstider</div>
             <div>Utstyr</div>

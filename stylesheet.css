@@ -1,12 +1,116 @@
 /* Generelt */
+body {
+    background-color: #FFFEEF;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+/* Font */
+.inter {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
 .flex {
     display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: blue;
+    width: 1470px;
+    height: 120px;
 }
-.singleFlexItem {
-    flex: 1;
+
+.bemanningBoks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blueviolet;
+    width: 652px;
+    height: 120px;
+    font-size: 26px;
 }
-.doubleFlexItem {
-    flex: 2;
+
+.varslingBoks {
+    background-color: palevioletred;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 818px;
+    height: 120px;
+}
+
+.oransjeBoks {
+    background-color: #F87837;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    width: 725px;
+    height: 85px;
+    font-size: 24px;
+}
+
+.varslingBilde {
+    width: 65px;
+    height: 65px;
+    margin-right: 30px;
+}
+
+.makerspaceTittel {
+    width: 1470px;
+    height: 185px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aqua;
+    color: #3A47FF;
+    font-size: 170px;
+}
+
+.navBarBoks {
+    width: 1470px;
+    height: 110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: hotpink;
+}
+
+.navBar {
+    background-color: sienna;
+    width: 1375px;
+    height: 75px;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #1E1E78;
+    display: flex;
+    flex-direction: row;
+}
+
+.knapp1 {
+    width: 275px;
+    height: 75px;
+    border-left: solid;
+    border-color: #1E1E78;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    color: #1E1E78;
+}
+
+.knapp2 {
+    width: 275px;
+    height: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    color: #1E1E78;
 }
 
 /* Header */
