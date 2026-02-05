@@ -1,5 +1,5 @@
-// Importerer arrays fra ./schedule.json 
-import schedule from './schedule.json' with { type: 'json' }
+// Importerer arrays fra /assets/JSON/schedule.json 
+import schedule from '/assets/JSON/schedule.json' with { type: 'json' }
 
 let date = new Date()
 let i = 0
@@ -11,9 +11,9 @@ let isItOpen = document.getElementById("isItOpen")
 let minuteTime = date.getHours() * 60 + date.getMinutes()
 
 while (i < schedule.length && found === false) {
-    // Her finner programmet dagen i array, deretter går den gradvis oppover fra bunnen og gir tidspunkt som 09:15
+    // Her finner programmet dagen i array, deretter går den gradvis oppover fra bunnen i while løkken og gir tidspunkt som 09:15
     let targetTime = schedule[date.getDay()][i].match(/^[^-]*/)
-    // For å sammenlikne nåtid med tidspunkt for Makerspace er det overført til minutter etter midnatt
+    // For å sammenlikne nåtid med tidspunkt for Makerspace er det overført til minutter etter midnatt, som 'minuteTime'
     let targetMinute = Number(targetTime[0].match(/^[^:]*/)[0]) * 60 + Number(targetTime[0].match(/[^:]*$/)[0])
     
     if (targetMinute >= minuteTime) {
