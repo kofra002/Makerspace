@@ -69,18 +69,16 @@ h4 {
     font-size: 32px;
     color: #1E1E78;
 }
-
-.tempHeight {
-    height: 100px;
+.rightLine {
+    border-right: solid black;
+    width: auto;
 }
-
 .hjemInnhold {
     display: flex;
     flex-direction: row;
     width: 1470px;
     height: 425px;
 }
-
 .hjemTekst {
     display: flex;
     flex-direction: column;
@@ -89,14 +87,12 @@ h4 {
     width: 1147px;
     height: 425px;
 }
-
 .hjemTekst1 {
     display: flex;
     justify-content: center;
     color: #3A47FF;
     font-size: 40px;
 }
-
 .hjemTekst2 {
     display: flex;
     justify-content: center;
@@ -105,7 +101,6 @@ h4 {
     color: #7981F7;
     font-size: 32px;
 }
-
 .hjemBildeBoks {
     width: 323px;
     height: 425px;
@@ -113,7 +108,6 @@ h4 {
     justify-content: flex-start;
     align-items: center;
 }
-
 .hjemBildeBoks img {
     width: 242px;
     height: 323px;
