@@ -1,7 +1,7 @@
-<svg width="300" height="300" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="150" cy="150" r="75" style="fill:yellow;"></circle>
-  <circle cx="150" cy="150" r="75" opacity="1" style="fill:yellow;">
-    <animate attributeName="r" begin="0s" dur="1s" from="75" to="150" repeatCount="indefinite"/>
+<svg width="40" height="40" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="20" cy="20" r="10" style="fill:yellow;"></circle>
+  <circle cx="20" cy="20" r="10" opacity="1" style="fill:yellow;">
+    <animate attributeName="r" begin="0s" dur="1s" from="10" to="20" repeatCount="indefinite"/>
     <animate attributeName="opacity" begin="0s" dur="1s" from="1" to="0" repeatCount="indefinite"/>
   </circle>
 </svg>
