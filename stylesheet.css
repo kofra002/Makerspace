@@ -112,3 +112,19 @@ h4 {
     width: 242px;
     height: 323px;
 }
+#warning {
+    display: none;
+}
+.flex-table {
+    display: flex;
+    height: 600px;
+    width: 600px;;
+}
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+.flex-cell {
+    border: 1px solid #000;
+    width: 50px;
+}

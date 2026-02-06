@@ -1,12 +1,13 @@
 // Importerer arrays fra /assets/JSON/schedule.json 
 import schedule from '/assets/JSON/schedule.json' with { type: 'json' }
 
-let date = new Date(2026, 2, 6, 13, 0)
+let date = new Date()
 let i = 0
 let found = false
 let status, since, until, color = ""
 
 let isItOpen = document.getElementById("isItOpen")
+//isItOpen = document.querySelector(".open-status h2")
 
 let minuteTime = date.getHours() * 60 + date.getMinutes()
 
@@ -29,10 +30,10 @@ while (i < schedule.length && found === false) {
     i++
 }
 
-if (found === false) {
-    status = schedule[7].status
-    color = schedule[7].color
-    isItOpen.innerHTML = `${status} <img src="/assets/pulses/${color}Pulse.svg"/>`
+// if (found === false) {
+//     status = schedule[7].status
+//     color = schedule[7].color
+//     isItOpen.innerHTML = `${status} <img src="/assets/pulses/${color}Pulse.svg"/>`
 
-    found = true
-}
+//     found = true
+// }
