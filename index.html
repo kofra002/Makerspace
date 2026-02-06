@@ -7,25 +7,21 @@
   <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Special+Gothic+Expanded+One&display=swap"
         rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="styleMobile.css">k
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/styleMobile.css">
 </head>
 <body>
 <section id="home">
   <header class="home-header">
     <div class="open-status">
-      <h2>Åpent: 08:15 -> 10:00</h2>
-        <div class="open-status-icon">
-          <img src="assets/pulses/greenPulse.svg" alt="open-status-icon">
-        </div>
+      <h2></h2>
+        <div class="open-status-icon"></div>
     </div>
     <div class="alert">
         <div class="alert-icon">
-          <img src="assets/warning.svg" alt="alert-icon">
+          <img src="/assets/warning.svg" alt="alert-icon">
         </div>
-      <h2 class="alert-text">
-        Denne uken er forbeholdt til eksamen! 3D-printere prioriteres!
-      </h2>
+      <h2 class="alert-text"></h2>
     </div>
   </header>
   <h1 class="title">MAKERSPACE</h1>
@@ -57,6 +53,14 @@
     ÅPNINGSTIDER
   </h1>
   <hr>
+  <div class="open-table">
+    <div class="open-column"></div>
+    <div class="open-column-day open-column"></div>
+    <div class="open-column-day open-column"></div>
+    <div class="open-column-day open-column"></div>
+    <div class="open-column-day open-column"></div>
+    <div class="open-column-day open-column"></div>
+  </div>
 </section>
 <section id="booking">
   <h1 class="title">
@@ -110,5 +114,8 @@
     </div>
   </main>
 </section>
+  <script type="module" src="/assets/JavaScript/openStatus.js"></script>
+  <script src="/assets/JavaScript/warning.js"></script>
+  <script type="module" src="/assets/JavaScript/schedule.js"></script>
 </body>
 </html>

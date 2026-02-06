@@ -1,5 +1,5 @@
-warningElement = document.getElementById('warning')
-contentElement = document.getElementById('warningContent')
+warningElement = document.querySelector(".alert")
+contentElement = document.querySelector(".alert-text")
 
 let content = ""
 
