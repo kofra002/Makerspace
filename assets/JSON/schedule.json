@@ -1,9 +1,45 @@
 [
     [],
-    ["08:15-Bemannet", "10:00-Send melding", "11:30-Bemannet", "13:45-Send melding", "15:30-Bemannet", "17:30-Stengt"],
-    ["08:15-Bemannet", "09:45-Send melding", "11:30-Bemannet", "12:00-Send melding", "12:15-Stengt", "14:00-Bemannet", "16:00-Stengt"],
-    ["08:15-Bemannet", "14:15-Stengt", "15:30-Send melding", "16:00-Stengt"],
-    ["08:15-Bemannet", "09:45-Stengt", "11:30-Bemannet", "12:00-Send melding", "12:15-Stengt", "14:00-Bemannet", "16:00-Stengt"],
-    ["08:15-Bemannet", "09:45-Send melding", "11:30-Bemannet", "12:00-Send melding", "14:00-Bemannet", "16:00-Stengt"],
-    []
+    [
+        {"time": "08:15", "status": "Bemannet", "color": "green"},
+        {"time": "10:00", "status": "Send melding", "color": "yellow"},
+        {"time": "11:30", "status": "Bemannet", "color": "green"},
+        {"time": "13:45", "status": "Send melding", "color": "yellow"},
+        {"time": "15:30", "status": "Bemannet", "color": "green"},
+        {"time": "17:30", "status": "Stengt", "color":"red"}
+    ],
+    [
+        {"time": "08:15", "status": "Bemannet", "color": "green"},
+        {"time": "09:45", "status": "Send melding", "color": "yellow"},
+        {"time": "11:30", "status": "Bemannet", "color": "green"},
+        {"time": "12:00", "status": "Send melding", "color": "yellow"},
+        {"time": "12:15", "status": "Stengt", "color": "red"},
+        {"time": "14:00", "status": "Bemannet", "color": "green"},
+        {"time": "16:00", "status": "Stengt", "color": "red"}
+    ],
+    [
+        {"time": "08:15", "status": "Bemannet", "color": "green"},
+        {"time": "14:15", "status": "Stengt", "color": "red"},
+        {"time": "15:30", "status": "Send melding", "color": "yellow"},
+        {"time": "16:00", "status": "Stengt", "color": "red"}
+    ],
+    [
+        {"time": "08:15", "status": "Bemannet", "color": "green"},
+        {"time": "09:45", "status": "Stengt", "color": "red"},
+        {"time": "11:30", "status": "Bemannet", "color": "green"},
+        {"time": "12:00", "status": "Send melding", "color": "yellow"},
+        {"time": "12:15", "status": "Stengt", "color": "red"},
+        {"time": "14:00", "status": "Bemannet", "color": "green"},
+        {"time": "16:00", "status": "Stengt", "color": "red"}
+    ],
+    [
+        {"time": "08:15", "status": "Bemannet", "color": "green"},
+        {"time": "09:45", "status": "Send melding", "color": "yellow"},
+        {"time": "11:30", "status": "Bemannet", "color": "green"},
+        {"time": "12:00", "status": "Send melding", "color": "yellow"},
+        {"time": "14:00", "status": "Bemannet", "color": "green"},
+        {"time": "16:00", "status": "Stengt", "color": "red"}
+    ],
+    [],
+    {"status": "Stengt", "color": "red"}
 ]
