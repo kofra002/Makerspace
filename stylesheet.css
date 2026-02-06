@@ -1,114 +1,30 @@
-/* Fonts */
-@font-face {
-    font-family: Roboto;
-    src: url(assets/fonts/Roboto-VariableFont_wdth\,wght.ttf);
-}
-@font-face {
-    font-family: RobotoItalic;
-    src: url(assets/fonts/Roboto-Italic-VariableFont_wdth\,wght.ttf);
-}
-/* General */
-* {
-  font-family: "Roboto", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 350;
-  font-style: normal;
+:root {
+    /* Colors */
+    --background-color: rgba(255, 254, 239, 1);
+    --secondary-background-color: rgba(255, 255, 255, 1);
+    --primary-text-color: rgba(58, 71, 255, 1);
+    --secondary-text-light-color: rgba(121, 129, 247, 1);
+    --dark-text-color: rgba(0, 0, 0, 1);
+    --background-light-blue: rgba(217, 215, 255, 1);
+    --required-star: rgba(217, 215, 255, 1);
+    --notification-background: rgba(217, 215, 255, 1);
+
+    /* Fonts */
+    --font-text: "Inter", sans-serif;
+    --font-title: "Special Gothic Expanded One", sans-serif;
+    --text-size: 2rem;
+    --text-big-size: 2.5rem;
+    --text-small-size: 1.5rem;
+    --title-size: 12.5rem;
+
+    /* Icons */
+    --icon-warning: url(assets/warning.svg);
+    --icon-size: 5.3125rem;
+
+
 }
 body {
-    background-color: #FFFEEE;
     margin: 0;
+    padding: 0;
 }
 
-.singleFlexItem {
-    flex: 1;
-}
-.doubleFlexItem {
-    flex: 2;
-}
-.flexAlign {
-    display: flex;
-    align-items: center;
-}
-.justifyCenter {
-    justify-content: center;
-}
-
-h1 {
-    color: #3A47FF;
-    font-size: 170px;
-    margin: 20px;
-}
-h4 {
-    font-size: 26px;
-}
-/* Warning */
-.oransjeBoks {
-    background-color: #F87837;
-    border-radius: 10px;
-    font-size: 24px;
-    padding: 5px;
-}
-.varslingBilde {
-    width: 65px;
-    height: 65px;
-    margin-right: 30px;
-}
-
-/* Header */
-.navBar {
-    border-radius: 10px;
-    border-style: solid;
-    border-width: 2px;
-}
-.navBar div {
-    display: flex;
-    width: 275px;
-    height: 75px;
-    justify-content: center;
-    align-items: center;
-    font-size: 32px;
-    color: #1E1E78;
-}
-.rightLine {
-    border-right: solid black;
-    width: auto;
-}
-.hjemInnhold {
-    display: flex;
-    flex-direction: row;
-    width: 1470px;
-    height: 425px;
-}
-.hjemTekst {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 1147px;
-    height: 425px;
-}
-.hjemTekst1 {
-    display: flex;
-    justify-content: center;
-    color: #3A47FF;
-    font-size: 40px;
-}
-.hjemTekst2 {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    width: 949px;
-    color: #7981F7;
-    font-size: 32px;
-}
-.hjemBildeBoks {
-    width: 323px;
-    height: 425px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-}
-.hjemBildeBoks img {
-    width: 242px;
-    height: 323px;
-}
