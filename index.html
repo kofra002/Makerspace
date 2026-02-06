@@ -27,8 +27,8 @@
   <h1 class="title">Makerspace</h1>
   <nav>
     <a href="#opening-table">Åpningstider</a>
-    <a href="#equipment">Utstyr</a>
     <a href="#booking">Booking</a>
+    <a href="#equipment">Utstyr</a>
     <a href="#employed">Ansatte</a>
     <a href="#studentwork">Elevarbeid</a>
   </nav>
@@ -47,6 +47,42 @@
     </div>
   </main>
 </section>
-
+<section id="opening-table">
+  <h1 class="title">
+    ÅPNINGSTIDER
+  </h1>
+  <hr>
+</section>
+<section id="booking">
+  <h1 class="title">
+    BOOKING
+  </h1>
+  <hr>
+  <div class="booking-container">
+    <div class="booking-background">
+      <h2>
+        Book nå
+      </h2>
+      <h3>
+        Fill ut skjemaet her for å booke.
+      </h3>
+      <a href="#opening-table">Åpningstider</a>
+    </div>
+    <div class="booking-form">
+      <h2>Booking</h2>
+      <form>
+        <label for="name">Navnet ditt</label>
+        <input type="text" id="name" placeholder="Hva heter du?" required>
+        <label for="email">E-post</label>
+        <input type="email" id="email" placeholder="example@mail.com" required>
+        <label for="day">Dag</label>
+        <input type="date" id="day" required>
+        <label for="time" class="time-label">Klokkelsett</label>
+        <input type="time" id="time" required>
+        <button type="submit">Send inn skjema</button>
+      </form>
+    </div>
+  </div>
+</section>
 </body>
 </html>
