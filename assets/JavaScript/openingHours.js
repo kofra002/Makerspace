@@ -1,7 +1,7 @@
 // Importerer arrays fra /assets/JSON/schedule.json 
 import schedule from '/assets/JSON/schedule.json' with { type: 'json' }
 
-let date = new Date()
+let date = new Date(2026, 2, 6, 13, 0)
 let i = 0
 let found = false
 let status, since, until, color = ""
