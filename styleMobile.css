@@ -1,0 +1,10 @@
+@media (max-width: 768px) {
+  .body {
+    display: flex;
+    width: 25.125rem;
+    height: 375rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+  }
+}
