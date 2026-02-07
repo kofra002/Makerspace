@@ -19,6 +19,7 @@ while (i < schedule.length && found === false) {
     // For å sammenlikne nåtid med tidspunkt for Makerspace er det overført til minutter etter midnatt, som 'minuteTime'
     let targetMinute = Number(targetTime.match(/^[^:]*/)[0]) * 60 + Number(targetTime.match(/[^:]*$/)[0])
     
+    // Hvis "targetMinute" er større enn eller lik "minuteTime" (altså nå) vet man at den forrige fasen er den nåværende fasen på grunn av tidene er plassert kronologisk
     if (targetMinute >= minuteTime) {
         status = schedule[day][i - 1].status
         since = schedule[day][i - 1].time
