@@ -42,6 +42,14 @@ body {
 }
 @media (min-width: 768px) {
 
+/* Structure */
+.title {
+    font-family: var(--font-title);
+    font-size: var(--title-size);
+    color: var(--primary-text-color);
+}
+
+
 #home {
     display: flex;
     flex-direction: column;
@@ -97,9 +105,7 @@ body {
     height: 100%;
 }
 #home .title {
-    font-family: var(--font-title);
     font-size: var(--title-big-size);
-    color: var(--primary-text-color);
 }
 #home nav {
     display: flex;
@@ -181,5 +187,10 @@ body {
 #opening-table .open-column div{
     border: 1px solid #000;
     width: 50px;
+}
+/* Test */
+#map {
+    height: 400px;
+    width: 400px;
 }
 }
