@@ -9,6 +9,25 @@ let pulse = document.querySelector(".open-status-icon")
 checkOpenStatus()
 setInterval(() => checkOpenStatus(), 60000)
 
+// Hoved skriptet som sjekker nå tid og starter de andre skriptene
+function checkOpenStatus() {
+    let date = new Date()
+    let day = date.getDay() - 1 // - 1 fordi den begyner på sondag
+    let hour = date.getHours()
+    let minute = date.getMinutes()
+
+    for (let i = 0; i < schedule[day].length; i++) {
+        // Den finner intervalet etter navaerende tidspukt.
+        // Sa "setOpenStatus()" har "i - 1" for a fikse dette
+        if (targetTime(i, day, hour, minute)) {
+            setOpenStatus(i, day)
+            break
+        }
+    }
+
+    closedTime(day, hour, minute)
+}
+
 // Sjekker forst om timen er enten lik eller hoyere enn malet.
 // Dersom dette stemmer gjor den det samme med minutter og 
 // finner hvilket interval det er (viktig! Kronologisk JSON fil)
@@ -37,19 +56,22 @@ function setOpenStatus(sequence, day) {
     pulse.innerHTML = `<img src="/assets/pulses/${color}Pulse.svg" alt="open-status-icon">`
 }
 
-// Hoved skriptet som sjekker nå tid og starter de andre skriptene
-function checkOpenStatus() {
-    let date = new Date()
-    let day = date.getDay() - 1 // - 1 fordi den begyner på sondag
-    let hour = date.getHours()
-    let minute = date.getMinutes()
+function closedTime(day, hour, minute) {
+    let earlyTime = schedule[day][0].time
+    let lateTime = schedule[day][schedule[day].length - 1].time
+    let earlyHour = earlyTime.match(/^[^:]*/)[0]
+    let lateHour = lateTime.match(/^[^:]*/)[0]
 
-    for (let i = 0; i < schedule.length; i++) {
-        // Den finner intervalet etter navaerende tidspukt.
-        // Sa "setOpenStatus()" har "i - 1" for a fikse dette
-        if (targetTime(i, day, hour, minute)) {
-            setOpenStatus(i, day)
-            break
+    if (hour <= earlyHour) {
+        let earlyMinute = earlyTime.match(/[^:]*$/)[0]
+        if (minute <= earlyMinute) {
+            console.log("Før start!")
+        }
+    }
+    else if (hour >= lateHour) {
+        let lateMinute = lateTime.match(/[^:]*$/)[0]
+        if (minute >= lateMinute) {
+            console.log("etter slutt!")
         }
     }
 }
