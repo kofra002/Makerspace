@@ -15,7 +15,7 @@ for (let i = 0; i < schedule.length - 1; i++) {
         duration = referenceMinute - targetMinute
         flex = duration / 15
         flexTotal += flex
-        console.log(flex)
+        //console.log(flex)
         days[i].innerHTML += `<div class="flex-cell" style="flex:${flex};">${schedule[i][j].status}</div>`
     }
 }
