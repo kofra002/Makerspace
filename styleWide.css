@@ -1,0 +1,83 @@
+@media (min-width: 768px) {
+#home {
+    flex-direction: column;
+    padding: 2.5rem 6.25rem;
+}
+#home nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: fit-content;
+    border-radius: 0.625rem;
+    border: 0.4px solid var(--border-color);
+    overflow: hidden;
+    text-align: center;
+}
+#home nav a {
+    border: solid var(--border-color);
+    border-width: 0 0.4px;
+    width: 21.55rem;
+    height: 6.5625rem;
+    align-content: center;
+    font-size: var(--text-small-size);
+    color: var(--dark-text-color);
+    transition: all 0.2s ease-in-out;
+}
+
+#home #home-main {
+    width: 100%;
+    height: 32.3vw;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: space-between;
+}
+#home #home-main .home-main-text {
+    width: 50vw;
+    text-overflow: fade;
+    text-wrap: wrap;
+    text-align: center;
+}
+#home #home-main .home-main-text h2 {
+    font-size: var(--text-big-size);
+    font-weight: 400;
+    color: var(--primary-text-color);
+}
+#home #home-main .home-main-text h3 {
+    margin-top: 2rem;
+    font-size: var(--text-size);
+    font-weight: 300;
+    color: var(--secondary-text-light-color);
+}
+#home #home-main .home-main-image {
+    height: 100%;
+    aspect-ratio: auto;
+    object-fit: cover;
+    object-position: center;
+    overflow: hidden;
+    border-radius: 1.25rem;
+}
+#home #home-main .home-main-image img {
+    width: 100%;
+    height: 100%;
+}
+#opening-table .open-table {
+    display: flex;
+}
+#opening-table .open-column {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+}
+#opening-table .open-column div{
+    border: 1px solid #000;
+    width: 50px;
+}
+/* Test */
+#map {
+    height: 400px;
+    width: 400px;
+}
+}

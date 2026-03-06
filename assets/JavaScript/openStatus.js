@@ -7,7 +7,7 @@ let pulse = document.querySelector(".open-status-icon")
 
 // Kjorer funksjonene nar started, deretter hvert minutt
 checkOpenStatus()
-setInterval(checkOpenStatus, 60000)
+setInterval(() => checkOpenStatus(), 60000)
 
 // Sjekker forst om timen er enten lik eller hoyere enn malet.
 // Dersom dette stemmer gjor den det samme med minutter og 
