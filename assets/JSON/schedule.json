@@ -1,4 +1,5 @@
 [
+    null,
     [
         {"time": "08:15", "status": "Bemannet", "color": "green"},
         {"time": "10:00", "status": "Send melding", "color": "yellow"},
@@ -39,7 +40,5 @@
         {"time": "14:00", "status": "Bemannet", "color": "green"},
         {"time": "16:00", "status": "Stengt", "color": "red"}
     ],
-    [
-        {"status": "Stengt", "color": "red"}
-    ]
+    null
 ]

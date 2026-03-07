@@ -12,20 +12,26 @@ setInterval(() => checkOpenStatus(), 60000)
 // Hoved skriptet som sjekker nå tid og starter de andre skriptene
 function checkOpenStatus() {
     let date = new Date()
-    let day = date.getDay() - 1 // - 1 fordi den begyner på sondag
+    let day = date.getDay()
     let hour = date.getHours()
     let minute = date.getMinutes()
 
-    for (let i = 0; i < schedule[day].length; i++) {
-        // Den finner intervalet etter navaerende tidspukt.
-        // Sa "setOpenStatus()" har "i - 1" for a fikse dette
-        if (targetTime(i, day, hour, minute)) {
-            setOpenStatus(i, day)
-            break
+    if (schedule[day] === null) {
+        setClosedStatus()
+    }
+    else if (closedTime(day, hour, minute)) {
+        
+    }
+    else {
+        for (let i = 0; i < schedule[day].length; i++) {
+            // Den finner intervalet etter navaerende tidspukt.
+            // Sa "setOpenStatus()" har "i - 1" for a fikse dette
+            if (targetTime(i, day, hour, minute)) {
+                setOpenStatus(i, day)
+                break
+            }
         }
     }
-
-    closedTime(day, hour, minute)
 }
 
 // Sjekker forst om timen er enten lik eller hoyere enn malet.
@@ -65,13 +71,24 @@ function closedTime(day, hour, minute) {
     if (hour <= earlyHour) {
         let earlyMinute = earlyTime.match(/[^:]*$/)[0]
         if (minute <= earlyMinute) {
-            console.log("Før start!")
+            setClosedStatus("early", lateTime)
+            return true
         }
     }
     else if (hour >= lateHour) {
         let lateMinute = lateTime.match(/[^:]*$/)[0]
         if (minute >= lateMinute) {
-            console.log("etter slutt!")
+            setClosedStatus("late", earlyTime)
+            return true
         }
     }
+
+    return false
+}
+
+function setClosedStatus(status = "Stengt", open, color = "red") {
+    openStatus.innerHTML = `${status}: ${open}`
+    pulse.innerHTML = `<img src="/assets/pulses/${color}Pulse.svg" alt="open-status-icon">`
+
+
 }
