@@ -1,44 +1,44 @@
 [
     null,
     [
-        {"open": true, "time": "08:15", "status": "Bemannet", "color": "green"},
-        {"open": true, "time": "10:00", "status": "Send melding", "color": "yellow"},
-        {"open": true, "time": "11:30", "status": "Bemannet", "color": "green"},
-        {"open": true, "time": "13:45", "status": "Send melding", "color": "yellow"},
-        {"open": true, "time": "15:30", "status": "Bemannet", "color": "green"},
-        {"open": false, "time": "17:30", "status": "Stengt", "color":"red"}
+        {"time": "08:15", "status": "Bemannet", "color": "green"},
+        {"time": "10:00", "status": "Send melding", "color": "yellow"},
+        {"time": "11:30", "status": "Bemannet", "color": "green"},
+        {"time": "13:45", "status": "Send melding", "color": "yellow"},
+        {"time": "15:30", "status": "Bemannet", "color": "green"},
+        {"time": "17:30", "status": "Stengt", "color":"red"}
     ],
     [
-        {"open": true, "time": "08:15", "status": "Bemannet", "color": "green"},
-        {"open": true, "time": "09:45", "status": "Send melding", "color": "yellow"},
-        {"open": true, "time": "11:30", "status": "Bemannet", "color": "green"},
-        {"open": true, "time": "12:00", "status": "Send melding", "color": "yellow"},
-        {"open": false, "time": "12:15", "status": "Stengt", "color": "red"},
-        {"open": true, "time": "14:00", "status": "Bemannet", "color": "green"},
-        {"open": false, "time": "16:00", "status": "Stengt", "color": "red"}
+        {"time": "08:15", "status": "Bemannet", "color": "green"},
+        {"time": "09:45", "status": "Send melding", "color": "yellow"},
+        {"time": "11:30", "status": "Bemannet", "color": "green"},
+        {"time": "12:00", "status": "Send melding", "color": "yellow"},
+        {"time": "12:15", "status": "Stengt", "color": "red"},
+        {"time": "14:00", "status": "Bemannet", "color": "green"},
+        {"time": "16:00", "status": "Stengt", "color": "red"}
     ],
     [
-        {"open": true, "time": "08:15", "status": "Bemannet", "color": "green"},
-        {"open": false, "time": "14:15", "status": "Stengt", "color": "red"},
-        {"open": true, "time": "15:30", "status": "Send melding", "color": "yellow"},
-        {"open": false, "time": "16:00", "status": "Stengt", "color": "red"}
+        {"time": "08:15", "status": "Bemannet", "color": "green"},
+        {"time": "14:15", "status": "Stengt", "color": "red"},
+        {"time": "15:30", "status": "Send melding", "color": "yellow"},
+        {"time": "16:00", "status": "Stengt", "color": "red"}
     ],
     [
-        {"open": true, "time": "08:15", "status": "Bemannet", "color": "green"},
-        {"open": false, "time": "09:45", "status": "Stengt", "color": "red"},
-        {"open": true, "time": "11:30", "status": "Bemannet", "color": "green"},
-        {"open": true, "time": "12:00", "status": "Send melding", "color": "yellow"},
-        {"open": false, "time": "12:15", "status": "Stengt", "color": "red"},
-        {"open": true, "time": "14:00", "status": "Bemannet", "color": "green"},
-        {"open": false, "time": "16:00", "status": "Stengt", "color": "red"}
+        {"time": "08:15", "status": "Bemannet", "color": "green"},
+        {"time": "09:45", "status": "Stengt", "color": "red"},
+        {"time": "11:30", "status": "Bemannet", "color": "green"},
+        {"time": "12:00", "status": "Send melding", "color": "yellow"},
+        {"time": "12:15", "status": "Stengt", "color": "red"},
+        {"time": "14:00", "status": "Bemannet", "color": "green"},
+        {"time": "16:00", "status": "Stengt", "color": "red"}
     ],
     [
-        {"open": true, "time": "08:15", "status": "Bemannet", "color": "green"},
-        {"open": true, "time": "09:45", "status": "Send melding", "color": "yellow"},
-        {"open": true, "time": "11:30", "status": "Bemannet", "color": "green"},
-        {"open": true, "time": "12:00", "status": "Send melding", "color": "yellow"},
-        {"open": true, "time": "14:00", "status": "Bemannet", "color": "green"},
-        {"open": false, "time": "16:00", "status": "Stengt", "color": "red"}
+        {"time": "08:15", "status": "Bemannet", "color": "green"},
+        {"time": "09:45", "status": "Send melding", "color": "yellow"},
+        {"time": "11:30", "status": "Bemannet", "color": "green"},
+        {"time": "12:00", "status": "Send melding", "color": "yellow"},
+        {"time": "14:00", "status": "Bemannet", "color": "green"},
+        {"time": "16:00", "status": "Stengt", "color": "red"}
     ],
     null
 ]

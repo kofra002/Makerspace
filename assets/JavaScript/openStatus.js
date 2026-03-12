@@ -9,14 +9,13 @@ checkOpenStatus()
 setInterval(() => checkOpenStatus(), 30000)
 
 // Main script acting as initializer for all functions
-function checkOpenStatus() {
-    let date = new Date()
+function checkOpenStatus(date = new Date()) {
     let day = date.getDay()
     let hour = date.getHours()
     let minute = date.getMinutes()
 
-    if (alert.active) {
-        setStatus(alert.open, alert.color, alert.status)
+    if (alert.overrideStatus) {
+        setStatus(alert.color, alert.status)
     }
     else if (schedule[day] === null || lateTime(day, hour, minute)) {
         let newScheduleDay = newDay(day)
@@ -31,12 +30,12 @@ function checkOpenStatus() {
             until = `mandag ${openingTime}`
         }
 
-        setStatus(false, "red", "Åpner", null, until)
+        setStatus("red", "Åpner", null, until)
     }
     else if (earlyTime(day, hour, minute)) {
-        let until = schedule[day][0].time
+        let postContent = schedule[day][0].time
 
-        setStatus(false, "red", "Åpner", null, until)
+        setStatus("red", "Åpner", postContent)
     }
     else {
         for (let i = 0; i < schedule[day].length; i++) {
@@ -44,13 +43,15 @@ function checkOpenStatus() {
             // Therefore "setOpenStatus()" contains "i - 1" to
             // offset this effect
             if (targetTime(i, day, hour, minute)) {
-                let open = schedule[day][i - 1].open
                 let color = schedule[day][i - 1].color
                 let status = schedule[day][i - 1].status
                 let since = schedule[day][i - 1].time
                 let until = schedule[day][i].time
 
-                setStatus(open, color, status, since, until, false)
+                let preContent = `${status}:`
+                let postContent = ` ${since} -> ${until}`
+
+                setStatus(color, preContent, postContent)
                 break
             }
         }
@@ -102,7 +103,7 @@ function lateTime(day, hour, minute) {
     return false
 }
 
-function setStatus(open = false, color = "red", status = null, since = null, until = null) {
+function setStatus(color = "red", content = "") {
     if (open) {
         openStatus.innerHTML = `${status}: ${since} -> ${until}`
         pulse.innerHTML = `<img src="/assets/pulses/${color}Pulse.svg" alt="open-status-icon">`
