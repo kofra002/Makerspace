@@ -1,7 +1,8 @@
 {
-    "active": false,
+    "active": true,
+    "content": "Eksempel",
+
     "overrideStatus": false,
-    "content": "Cheeeeeesseeeeeee",
     "status": "Stengt",
     "color": "red"
 }

@@ -7,9 +7,8 @@
   <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Special+Gothic+Expanded+One&display=swap" rel="stylesheet">
   <link href="/style.css" rel="stylesheet">
-  <link href="/styleHigh.css" rel="stylesheet">
-  <link href="/styleWide.css" rel="stylesheet">
-  <link href="https://unpkg.com/leaflet@2.0.0-alpha.1/dist/leaflet.css" rel="stylesheet" >
+  <link href="https://unpkg.com/leaflet@2.0.0-alpha.1/dist/leaflet.css" rel="stylesheet">
+  <link href="https://unpkg.com/lightgallery@2.9.0/css/lightgallery-bundle.min.css" rel="stylesheet">
 </head>
 <body>
   <section id="home">
@@ -20,7 +19,7 @@
     </div>
     <div class="alert">
         <div class="alert-icon">
-          <img src="/assets/warning.svg" alt="alert-icon">
+          <img src="/assets/alert.svg" alt="alert-icon">
         </div>
       <h2 class="alert-text"></h2>
     </div>
@@ -29,11 +28,10 @@
     <nav>
       <a href="#opening-table">Åpningstider</a>
       <a href="#equipment">Utstyr</a>
-      <a href="#booking">Booking</a>
       <a href="#studentwork">Elevarbeid</a>
       <a href="#about">Om Oss</a>
+      <a href="https://example.com">Wiki</a>
     </nav>
-    <h2>For tutorials, wiki og tips fra Makerspace se her</h4>
     <main id="home-main">
       <div class="home-main-text">
         <h2>
@@ -56,6 +54,7 @@
     </h1>
     <hr>
     <main id="open-main">
+      <img src="/assets/images/schedule.png">
     </main>
   </section>
   <section id="equipment">
@@ -64,39 +63,6 @@
     </h1>
     <hr>
     <main id="equipment-main">
-    </main>
-  </section>
-  <section id="booking">
-    <h1 class="title">
-      BOOKING
-    </h1>
-    <hr>
-    <main id="booking-main">
-      <div class="booking-container">
-        <div class="booking-background">
-          <h2>
-            Book nå
-          </h2>
-          <h3>
-            Fill ut skjemaet her for å booke.
-          </h3>
-          <a href="#opening-table">Åpningstider</a>
-        </div>
-        <div class="booking-form">
-          <h2>Booking</h2>
-          <form>
-            <label for="name">Navnet ditt</label>
-            <input type="text" id="name" placeholder="Hva heter du?" required>
-            <label for="email">E-post</label>
-            <input type="email" id="email" placeholder="example@mail.com" required>
-            <label for="day">Dag</label>
-            <input type="date" id="day" required>
-            <label for="time" class="time-label">Klokkelsett</label>
-            <input type="time" id="time" required>
-            <button type="submit">Send inn skjema</button>
-          </form>
-        </div>
-      </div>
     </main>
   </section>
   <section id="studentwork">
@@ -113,18 +79,10 @@
     </h1>
     <hr>
     <main id="about-main">
-      <div class="employe">
-        <div class="employe-image">
-          <img alt="employe">
-        </div>
-        <h2>Navn</h2>
-        <h3>Jobb</h3>
-      </div>
+      <div id="map"></div>
     </main>
   </section>
-  <footer>
-    <div id="map"></div>
-  </footer>
+  <footer></footer>
   <script type="importmap">
     {
       "imports": {
@@ -132,6 +90,7 @@
       }
     }
   </script>
+  <script src="https://unpkg.com/lightgallery@2.9.0/lightgallery.min.js"></script>
   <script type="module" src="/assets/JavaScript/openStatus.js"></script>
   <script type="module" src="/assets/JavaScript/alert.js"></script>
   <script type="module" src="/assets/JavaScript/map.js"></script>

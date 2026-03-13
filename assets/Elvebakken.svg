@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Elvebakken" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1070.87 1081">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke: #000;
+        stroke-miterlimit: 10;
+      }
+    </style>
+  </defs>
+  <path class="cls-1" d="M530.37.5C268.11.5,49.52,187.47.61,435.39h354.1v92.08h-212.93v96.68h200.27v88.62h-200.27v115.1h223.29v92.08h-218.89c97.9,99.12,233.87,160.55,384.2,160.55,298.23,0,540-241.77,540-540S828.61.5,530.37.5Z"/>
+</svg>
