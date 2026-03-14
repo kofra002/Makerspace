@@ -1,33 +1,56 @@
-// Importerer arrays fra /assets/JSON/schedule.json 
 import schedule from "/assets/JSON/schedule.json" with { type: 'json' }
+import alert from "/assets/JSON/alert.json" with { type: 'json' }
 
-// Finner hvor statusen og pulsen skal plasseres
-let openStatus = document.querySelector(".open-status h2")
-let pulse = document.querySelector(".open-status-icon")
+const openStatus = document.querySelector(".open-status h2")
+const pulse = document.querySelector(".open-status-icon")
 
-// Kjorer funksjonene nar started, deretter hvert minutt
+// Runs `checkOpenStatus()` during load, then each 30 seconds
 checkOpenStatus()
-setInterval(() => checkOpenStatus(), 60000)
+setInterval(() => checkOpenStatus(), 30000)
 
-// Hoved skriptet som sjekker nå tid og starter de andre skriptene
+// Main script acting as initializer for all functions
 function checkOpenStatus() {
     let date = new Date()
     let day = date.getDay()
     let hour = date.getHours()
     let minute = date.getMinutes()
 
-    if (schedule[day] === null) {
-        setClosedStatus()
+    if (alert.active) {
+        setStatus(alert.open, alert.color, alert.status)
     }
-    else if (closedTime(day, hour, minute)) {
-        
+    else if (schedule[day] === null || lateTime(day, hour, minute)) {
+        let newScheduleDay = newDay(day)
+        let openingTime = schedule[newScheduleDay[0]][0].time
+
+        let until = null
+
+        if (newScheduleDay[1] <= 1) {
+            until = `imorgen ${openingTime}`
+        }
+        else if (newScheduleDay[0] === 1 ) {
+            until = `mandag ${openingTime}`
+        }
+
+        setStatus(false, "red", "Åpner", null, until)
+    }
+    else if (earlyTime(day, hour, minute)) {
+        let until = schedule[day][0].time
+
+        setStatus(false, "red", "Åpner", null, until)
     }
     else {
         for (let i = 0; i < schedule[day].length; i++) {
-            // Den finner intervalet etter navaerende tidspukt.
-            // Sa "setOpenStatus()" har "i - 1" for a fikse dette
+            // Finds the status after the current time interval.
+            // Therefore "setOpenStatus()" contains "i - 1" to
+            // offset this effect
             if (targetTime(i, day, hour, minute)) {
-                setOpenStatus(i, day)
+                let open = schedule[day][i - 1].open
+                let color = schedule[day][i - 1].color
+                let status = schedule[day][i - 1].status
+                let since = schedule[day][i - 1].time
+                let until = schedule[day][i].time
+
+                setStatus(open, color, status, since, until, false)
                 break
             }
         }
@@ -51,34 +74,13 @@ function targetTime(sequence, day, hour, minute) {
     return false
 }
 
-// Setter statusen i nettsiden
-function setOpenStatus(sequence, day) {
-    let status = schedule[day][sequence - 1].status
-    let since = schedule[day][sequence - 1].time
-    let until = schedule[day][sequence].time
-    let color = schedule[day][sequence - 1].color
-
-    openStatus.innerHTML = `${status}: ${since} -> ${until}`
-    pulse.innerHTML = `<img src="/assets/pulses/${color}Pulse.svg" alt="open-status-icon">`
-}
-
-function closedTime(day, hour, minute) {
+function earlyTime(day, hour, minute) {
     let earlyTime = schedule[day][0].time
-    let lateTime = schedule[day][schedule[day].length - 1].time
     let earlyHour = earlyTime.match(/^[^:]*/)[0]
-    let lateHour = lateTime.match(/^[^:]*/)[0]
-
+    
     if (hour <= earlyHour) {
         let earlyMinute = earlyTime.match(/[^:]*$/)[0]
         if (minute <= earlyMinute) {
-            setClosedStatus("early", lateTime)
-            return true
-        }
-    }
-    else if (hour >= lateHour) {
-        let lateMinute = lateTime.match(/[^:]*$/)[0]
-        if (minute >= lateMinute) {
-            setClosedStatus("late", earlyTime)
             return true
         }
     }
@@ -86,9 +88,38 @@ function closedTime(day, hour, minute) {
     return false
 }
 
-function setClosedStatus(status = "Stengt", open, color = "red") {
-    openStatus.innerHTML = `${status}: ${open}`
-    pulse.innerHTML = `<img src="/assets/pulses/${color}Pulse.svg" alt="open-status-icon">`
+function lateTime(day, hour, minute) {
+    let lateTime = schedule[day][schedule[day].length - 1].time
+    let lateHour = lateTime.match(/^[^:]*/)[0]
 
+    if (hour >= lateHour) {
+        let lateMinute = lateTime.match(/[^:]*$/)[0]
+        if (minute >= lateMinute) {
+            return true
+        }
+    }
 
+    return false
+}
+
+function setStatus(open = false, color = "red", status = null, since = null, until = null) {
+    if (open) {
+        openStatus.innerHTML = `${status}: ${since} -> ${until}`
+        pulse.innerHTML = `<img src="/assets/pulses/${color}Pulse.svg" alt="open-status-icon">`
+    }
+    else {
+        openStatus.innerHTML = `${status} ${until}`
+        pulse.innerHTML = `<img src="/assets/pulses/${color}Pulse.svg" alt="open-status-icon">`
+    }
+}
+
+function newDay(day) {
+    for (let i = 1; i < 7; i++) {
+        let dayCheck = (day + i) % 7
+        if (schedule[dayCheck] !== null) {
+            return [dayCheck, i]
+        }
+    }
+
+    return null
 }
