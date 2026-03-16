@@ -1,0 +1,1 @@
+Alle bidrag til dette GitHub arkivet vil også gi Elvebakken Skaperverksted samme rettigheter som forfatteren, noe som lar oss endre lisens når som helst vi ønsker og gjør oss ikke pliktig til å oppgi ditt navn som en av forfatterene. Derfor er det viktig at alle bidrag tilhørerer enten forfatteren eller har en lisens som passer til GPLv3.
