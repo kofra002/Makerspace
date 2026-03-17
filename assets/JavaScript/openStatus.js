@@ -1,44 +1,129 @@
-// Importerer arrays fra /assets/JSON/schedule.json 
 import schedule from "/assets/JSON/schedule.json" with { type: 'json' }
+import alert from "/assets/JSON/alert.json" with { type: 'json' }
 
-let date = new Date()
-let i = 0
-let found = false
-let status, since, until, color = ""
+const openStatus = document.querySelector(".open-status h2")
+const pulse = document.querySelector(".open-status-icon")
 
-let openStatus = document.querySelector(".open-status h2")
-let pulse = document.querySelector(".open-status-icon")
+// Runs `checkOpenStatus()` during load, then each 30 seconds
+checkOpenStatus()
+setInterval(() => checkOpenStatus(), 30000)
 
-let minuteTime = date.getHours() * 60 + date.getMinutes()
+// Main script acting as initializer for all functions
+function checkOpenStatus(date = new Date()) {
+    let day = date.getDay()
+    let hour = date.getHours()
+    let minute = date.getMinutes()
 
-while (i < schedule.length && found === false) {
-    // - 1 fordi den begyner på søndag
-    let day = date.getDay() - 1
-    // Her finner programmet dagen i array, deretter går den gradvis oppover fra bunnen i while løkken og gir tidspunkt som 09:15
-    let targetTime = schedule[day][i].time
-    // For å sammenlikne nåtid med tidspunkt for Makerspace er det overført til minutter etter midnatt, som 'minuteTime'
-    let targetMinute = Number(targetTime.match(/^[^:]*/)[0]) * 60 + Number(targetTime.match(/[^:]*$/)[0])
-    
-    // Hvis "targetMinute" er større enn eller lik "minuteTime" (altså nå) vet man at den forrige fasen er den nåværende fasen på grunn av tidene er plassert kronologisk
-    if (targetMinute >= minuteTime) {
-        status = schedule[day][i - 1].status
-        since = schedule[day][i - 1].time
-        until = schedule[day][i].time
-        color = schedule[day][i - 1].color
+    let color = ""
+    let status = ""
 
-        openStatus.innerHTML = `${status}: ${since} -> ${until}`
-        pulse.innerHTML = `<img src="/assets/pulses/${color}Pulse.svg" alt="open-status-icon">`
+    if (alert.overrideStatus) {
+        color = alert.color
+        status = alert.status
+    }
+    else if (schedule[day] === null || lateTime(day, hour, minute)) {
+        let newScheduleDay = newDay(day)
+        let openingTime = schedule[newScheduleDay[0]][0].time
 
-        found = true
+        let opens = ""
+
+        if (newScheduleDay[1] <= 1) {
+            opens = `imorgen ${openingTime}`
+        }
+        else if (newScheduleDay[0] === 1 ) {
+            opens = `mandag ${openingTime}`
+        }
+
+        color = "red"
+        status = `Åpner ${opens}`
+    }
+    else if (earlyTime(day, hour, minute)) {
+        let opens = schedule[day][0].time
+
+        color = "red"
+        status = `Åpner ${opens}`
+    }
+    else {
+        for (let i = 0; i < schedule[day].length; i++) {
+            // Finds the status after the current time interval.
+            // Therefore "setOpenStatus()" contains "i - 1" to
+            // offset this effect
+            if (targetTime(i, day, hour, minute)) {
+                if (schedule[day][i - 1].open) {
+                    let content = schedule[day][i - 1].status
+                    let since = schedule[day][i - 1].time
+                    let until = schedule[day][i].time
+
+                    status = `${content}: ${since} -> ${until}`
+                }
+                else if (schedule[day][i - 1].open === false) {
+                    let opens = schedule[day][i].time
+
+                    status = `Åpner ${opens}`
+                }
+                color = schedule[day][i - 1].color
+
+                break
+            }
+        }
     }
 
-    i++
+    pulse.innerHTML = `<img src="/assets/pulses/${color}Pulse.svg" alt="open-status-icon">`
+    openStatus.innerHTML = `${status}`  
 }
 
-// if (found === false) {
-//     status = schedule[7].status
-//     color = schedule[7].color
-//     isItOpen.innerHTML = `${status} <img src="/assets/pulses/${color}Pulse.svg"/>`
+function lateTime(day, hour, minute) {
+    let lateTime = schedule[day][schedule[day].length - 1].time
+    let lateHour = lateTime.match(/^[^:]*/)[0]
 
-//     found = true
-// }
+    if (hour >= lateHour) {
+        let lateMinute = lateTime.match(/[^:]*$/)[0]
+        if (minute > lateMinute) {
+            return true
+        }
+    }
+
+    return false
+}
+
+function newDay(day) {
+    for (let i = 1; i < 7; i++) {
+        let dayCheck = (day + i) % 7
+        if (schedule[dayCheck] !== null) {
+            return [dayCheck, i]
+        }
+    }
+
+    return null
+}
+
+function earlyTime(day, hour, minute) {
+    let earlyTime = schedule[day][0].time
+    let earlyHour = earlyTime.match(/^[^:]*/)[0]
+    
+    if (hour <= earlyHour) {
+        let earlyMinute = earlyTime.match(/[^:]*$/)[0]
+        if (minute < earlyMinute) {
+            return true
+        }
+    }
+
+    return false
+}
+
+// Checks first whether the time equals or is higher than the
+// designated target. If true, it does the same for minutes.
+// Then it finds the current interval (important! chronologic JSON)
+function targetTime(sequence, day, hour, minute) {
+    let time = schedule[day][sequence].time
+    let hourRef = time.match(/^[^:]*/)[0]
+
+    if (hour <= hourRef) {
+        let minuteRef = time.match(/[^:]*$/)[0]
+        if (hour < hourRef || minute < minuteRef) {
+            return true
+        }
+    }
+
+    return false
+}
